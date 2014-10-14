@@ -1,4 +1,4 @@
-package com.sripra.termtegrity.cloverplugin;
+package com.termtegrity.spotskim.cloverplugin;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
