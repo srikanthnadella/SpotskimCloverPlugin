@@ -25,8 +25,6 @@ import java.util.Date;
 public class CloverPlugin extends CordovaPlugin implements MerchantConnector.OnMerchantChangedListener, ServiceConnector.OnServiceConnectedListener{
     public static final String ACTION_GET_MERCHANT = "getMerchant";
     private static final String TAG = "CloverPlugin";
-    private CallbackContext notificationCallbackContext = null;
-    BroadcastReceiver receiver;
     
     @Override
     public void onMerchantChanged(Merchant merchant) {
@@ -51,7 +49,7 @@ public class CloverPlugin extends CordovaPlugin implements MerchantConnector.OnM
                 startAccountChooser();
                 connect();
                 getMerchant();
-				JSONObject obj = new JSONObject();
+		JSONObject obj = new JSONObject();
         try {
             obj.put("MerchantID", merchantID);
             obj.put("DeviceID", deviceID);
@@ -59,12 +57,12 @@ public class CloverPlugin extends CordovaPlugin implements MerchantConnector.OnM
             Log.e(TAG, e.getMessage(), e);
         }
         
-				PluginResult result = new PluginResult(PluginResult.Status.OK, obj);
-            result.setKeepCallback(true);
-            callbackContext.sendPluginResult(result);
+	PluginResult result = new PluginResult(PluginResult.Status.OK, obj);
+        result.setKeepCallback(true);
+        callbackContext.sendPluginResult(result);
 
-                return true;
-            }
+        return true;
+        }
             callbackContext.error("Invalid action");
             return false;
         } catch(Exception e) {
